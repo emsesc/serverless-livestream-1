@@ -23,10 +23,14 @@ module.exports = async function (context, req) {
 // What your array could look like: [0.01, 0.34, .....]
     const main_emotion = Object.keys(emotions).find(key => emotions[key] === Math.max(...objects));
 
+    //COMPLETE THE CODE
+    const gifkey = process.env['giphykey']
+    const apiResult = await fetch (`https://api.giphy.com/v1/gifs/translate?api_key${gifkey}&s=${main_emotion}`);
+    let jsonResult = await apiResult.json()
+    console.log(jsonResult)
+
     context.res = {
-        body: {
-            main_emotion
-        }
+        body: jsonResult.data.url
     };
     console.log(result)
     context.done(); 
