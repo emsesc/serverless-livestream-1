@@ -25,7 +25,7 @@ module.exports = async function (context, req) {
 
     //COMPLETE THE CODE
     const gifkey = process.env['giphykey']
-    const apiResult = await fetch (`https://api.giphy.com/v1/gifs/translate?api_key${gifkey}&s=${main_emotion}`);
+    const apiResult = await fetch (`https://api.giphy.com/v1/gifs/translate?api_key=${gifkey}&s=${main_emotion}`);
     let jsonResult = await apiResult.json()
     console.log(jsonResult)
 
